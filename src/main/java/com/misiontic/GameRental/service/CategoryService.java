@@ -1,9 +1,7 @@
 package com.misiontic.GameRental.service;
 
 import com.misiontic.GameRental.entities.Category;
-import com.misiontic.GameRental.entities.Game;
 import com.misiontic.GameRental.repository.CategoryRepository;
-import com.misiontic.GameRental.repository.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +18,7 @@ public class CategoryService {
         return categoryRepository.getAll();
     }
 
-    public Optional<Category> getGame(int id){
+    public Optional<Category> getCategory(int id){
         return categoryRepository.getCategory(id);
     }
 
@@ -43,6 +41,9 @@ public class CategoryService {
             if(q.isPresent()){
                 if(c.getName()!=null){
                     q.get().setName(c.getName());
+                }
+                if(c.getDescription()!=null){
+                    q.get().setDescription(c.getDescription());
                 }
                 categoryRepository.save(q.get());
                 return q.get();

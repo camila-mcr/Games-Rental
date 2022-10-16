@@ -1,7 +1,7 @@
 package com.misiontic.GameRental.controller;
 
-import com.misiontic.GameRental.entities.Category;
-import com.misiontic.GameRental.service.CategoryService;
+import com.misiontic.GameRental.entities.Client;
+import com.misiontic.GameRental.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -9,34 +9,34 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/Category")
+@RequestMapping("/api/Client")
 @CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
-public class CategoryController {
+public class ClientController {
 
     @Autowired
-    private CategoryService categoryService;
+    private ClientService clientService;
 
     @GetMapping("/all")
-    public List<Category> getAll(){
-        return categoryService.getAll();
+    public List<Client> getAll(){
+        return clientService.getAll();
     }
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Category save(@RequestBody Category c){
-        return categoryService.save(c);
+    public Client save(@RequestBody Client c){
+        return clientService.save(c);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PutMapping("/update")
-    public Category update(@RequestBody Category category) {
-        return categoryService.update(category);
+    public Client update(@RequestBody Client client) {
+        return clientService.update(client);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
     public boolean delete(@PathVariable("id") int id) {
-        return categoryService.delete(id);
+        return clientService.delete(id);
     }
 
 }

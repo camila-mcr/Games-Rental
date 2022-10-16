@@ -18,7 +18,7 @@ public class ClientRepository {
         return (List<Client>) clientCrudRepository.findAll();
     }
 
-    public Optional<Client> getGame(int id){
+    public Optional<Client> getClient(int id){
         return clientCrudRepository.findById(id);
     }
 

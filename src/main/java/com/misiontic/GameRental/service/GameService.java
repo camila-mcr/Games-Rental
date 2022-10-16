@@ -54,6 +54,12 @@ public class GameService {
                 if(g.getCategory()!=null){
                     q.get().setCategory(g.getCategory());
                 }
+                if(g.getMessages()!=null){
+                    q.get().setMessages(g.getMessages());
+                }
+                if(g.getReservations()!=null){
+                    q.get().setReservations(g.getReservations());
+                }
                 gameRepository.save(q.get());
                 return q.get();
             }else{
