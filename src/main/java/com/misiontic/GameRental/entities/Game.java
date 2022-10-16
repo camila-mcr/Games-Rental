@@ -12,13 +12,13 @@ public class Game implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String developer;
-    private Integer minage;
-    private Integer category_id;
     private String name;
+    private String developer;
+    private Integer year;
+    private String description;
 
     @ManyToOne
-    @JoinColumn(name= "categoryIdd")
+    @JoinColumn(name= "categoryId")
     @JsonIgnoreProperties("games")
     private Category category;
 
@@ -30,6 +30,14 @@ public class Game implements Serializable {
         this.id = id;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getDeveloper() {
         return developer;
     }
@@ -38,28 +46,20 @@ public class Game implements Serializable {
         this.developer = developer;
     }
 
-    public Integer getMinage() {
-        return minage;
+    public Integer getYear() {
+        return year;
     }
 
-    public void setMinage(Integer minage) {
-        this.minage = minage;
+    public void setYear(Integer year) {
+        this.year = year;
     }
 
-    public Integer getCategory_id() {
-        return category_id;
+    public String getDescription() {
+        return description;
     }
 
-    public void setCategory_id(Integer category_id) {
-        this.category_id = category_id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Category getCategory() {

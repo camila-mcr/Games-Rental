@@ -39,14 +39,17 @@ public class GameService {
         if (g.getId()!=null){
             Optional<Game> q=gameRepository.getGame(g.getId());
             if(q.isPresent()){
+                if(g.getName()!=null){
+                    q.get().setName(g.getName());
+                }
                 if(g.getDeveloper()!=null){
                     q.get().setDeveloper(g.getDeveloper());
                 }
-                if(g.getMinage()!=null){
-                    q.get().setMinage(g.getMinage());
+                if(g.getYear()!=null){
+                    q.get().setYear(g.getYear());
                 }
-                if(g.getCategory_id()!=null){
-                    q.get().setCategory_id(g.getCategory_id());
+                if(g.getDescription()!=null){
+                    q.get().setDescription(g.getDescription());
                 }
                 if(g.getCategory()!=null){
                     q.get().setCategory(g.getCategory());
