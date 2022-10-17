@@ -15,12 +15,13 @@ public class Game implements Serializable {
     private Integer id;
     private String name;
     private String developer;
+    @Column(name = "years")
     private Integer year;
     private String description;
 
     @ManyToOne
     @JoinColumn(name= "categoryId")
-    @JsonIgnoreProperties("games")
+    @JsonIgnoreProperties({"games","category"})
     private Category category;
 
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "game")
@@ -28,7 +29,7 @@ public class Game implements Serializable {
     private List<Message> messages;
 
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "game")
-    @JsonIgnoreProperties({"game"})
+    @JsonIgnoreProperties("game")
     private List<Reservation> reservations;
 
 

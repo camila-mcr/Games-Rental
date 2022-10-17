@@ -2,6 +2,8 @@ package com.misiontic.GameRental.controller;
 
 import com.misiontic.GameRental.entities.Message;
 import com.misiontic.GameRental.entities.Reservation;
+import com.misiontic.GameRental.entities.custom.CountClient;
+import com.misiontic.GameRental.entities.custom.StatusAmount;
 import com.misiontic.GameRental.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
